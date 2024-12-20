@@ -1,0 +1,2 @@
+# Mancala
+Mancala terminal game

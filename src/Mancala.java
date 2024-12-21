@@ -1,5 +1,6 @@
 package src;
 public class Mancala {
+    //margerie taylor simpson
     // first half is computers side second half is players side
     private int[] board = {4,4,4,4,4,4,0,4,4,4,4,4,4,0};
 

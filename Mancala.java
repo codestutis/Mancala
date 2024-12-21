@@ -22,27 +22,12 @@ public class Mancala {
      * cant if its a store or well is empty
      */
     public boolean isValid(int index){
-        index --;
-        if (index < 7 || index > 12) {
-            return false;
-        }
 
-        if (board[index] == 0) {
-            return false;
-        }
-        return true;
+        return !((index < 8 || index > 13)) || (board[index] == 0);
     }
 
     public boolean AIValid(int index){
-        index --;
-        if (index < 0 || index > 5) {
-            return false;
-        }
-
-        if (board[index] == 0) {
-            return false;
-        }
-        return true;
+        return !((index < 1 || index > 6)) || (board[index] == 0);
     }
 
     /**

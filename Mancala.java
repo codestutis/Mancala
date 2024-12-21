@@ -19,8 +19,29 @@ public class Mancala {
      * 
      * @param index index of the players move
      * @return true if its a valid move
+     * cant if its a store or well is empty
      */
     public boolean isValid(int index){
+        index --;
+        if (index < 7 || index > 12) {
+            return false;
+        }
+
+        if (board[index] == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean AIValid(int index){
+        index --;
+        if (index < 0 || index > 5) {
+            return false;
+        }
+
+        if (board[index] == 0) {
+            return false;
+        }
         return true;
     }
 

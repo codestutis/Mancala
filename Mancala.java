@@ -12,7 +12,7 @@ public class Mancala {
      * prints board with correct formatting
      */
     public void printBoard(){
-        System.out.println(board);
+        System.out.println(board[1]);
     }
 
     /**

@@ -2,7 +2,7 @@
 public class Mancala {
     //margerie taylor simpson
     // first half is computers side second half is players side
-    private int[] board = {4,4,4,4,4,4,0,4,4,4,4,4,4,0};
+    private int[] board = new int[]{4,4,4,4,4,4,0,4,4,4,4,4,4,0};
 
     public Mancala(){
 
@@ -22,7 +22,7 @@ public class Mancala {
      * cant if its a store or well is empty
      */
     public boolean isValid(int index){
-
+        index += 5;
         return !((index < 8 || index > 13)) || (board[index] == 0);
     }
 

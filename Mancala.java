@@ -47,4 +47,8 @@ public class Mancala {
     public int AIMove(){
         return 0;
     }
+
+    public boolean checkWin(){
+        return false;
+    }
 }

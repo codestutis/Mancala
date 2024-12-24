@@ -1,8 +1,3 @@
-
-
-
-
-
 public class Mancala {
     //margerie taylor simpson
     // first half is computers side second half is players side
@@ -26,8 +21,8 @@ public class Mancala {
      * cant if its a store or well is empty
      */
     public boolean isValid(int index){
-        index += 5;
-        return !((index < 8 || index > 13)) || (board[index] == 0);
+        index += 6;
+        return !((index < 7 || index > 12)) || (board[index] == 0);
     }
 
     public boolean AIValid(int index){

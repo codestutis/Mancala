@@ -9,8 +9,8 @@ public class Main {
         try (Scanner input = new Scanner(System.in)) {
             // main game loop
             do { 
-                // usr input loop
                 game.printBoard();
+                // usr input loop
                 do {
                     System.out.println("Enter an integer in the range [1,6]: ");
                     move = input.nextInt();
@@ -23,7 +23,6 @@ public class Main {
                 game.makeMove(move);
                 game.AIMove();
             } while (!game.checkWin());
-
         }
     }
 }

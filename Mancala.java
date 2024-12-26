@@ -113,17 +113,22 @@ public class Mancala {
      * @return boolean, false if no one has won, true if someone won.
      */
     public boolean checkWin(){
+        boolean first = true;
+        boolean second = true;
         for (int i = 0; i < 6; i++) {
             if (board[i] != 0) {
-                return false;
+                first = false;
             }
         }
         for (int i = 7; i < 13; i++) {
             if (board[i] != 0) {
-                return false;
+                second = false;
             }
         }
-        return true;
+        if (first || second) {
+            return true;
+        }
+        return false;
     }
 
     public int[] getBoard() {

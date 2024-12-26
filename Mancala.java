@@ -46,6 +46,10 @@ public class Mancala {
         System.out.println();
     }
 
+    public void clearTerminal(){
+        
+    }
+
     /**
      * 
      * @param index index of the players move

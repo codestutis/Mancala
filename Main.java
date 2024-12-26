@@ -7,15 +7,23 @@ public class Main {
         int move;
         // get move from user
         try (Scanner input = new Scanner(System.in)) {
-            do {
-                System.out.println("Enter an integer in the range [1,6]: ");
-                move = input.nextInt();
-                // print message if move is invalid
-                if (!game.isValid(move)){
-                    System.out.println("Not a valid move please try again.");
-                }
-            } while (!game.isValid(move));
+            // main game loop
+            do { 
+                // usr input loop
+                game.printBoard();
+                do {
+                    System.out.println("Enter an integer in the range [1,6]: ");
+                    move = input.nextInt();
+                    // print message if move is invalid
+                    if (!game.isValid(move)){
+                        System.out.println("Not a valid move please try again.");
+                    }
+                } while (!game.isValid(move));
+
+                game.makeMove(move);
+                game.AIMove();
+            } while (!game.checkWin());
+
         }
-        System.out.println(move);
     }
 }

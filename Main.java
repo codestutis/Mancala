@@ -12,7 +12,7 @@ public class Main {
                 game.printBoard();
                 // usr input loop
                 do {
-                    System.out.println("Enter an integer in the range [1,6]: ");
+                    System.out.print("Enter an integer in the range [1,6]: ");
                     move = input.nextInt();
                     // print message if move is invalid
                     if (!game.isValid(move)){

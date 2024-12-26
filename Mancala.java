@@ -23,7 +23,7 @@ public class Mancala {
 
         System.out.printf("%40s\n\n", "MANCALA");
         System.out.printf("%31s", " ");
-        for (int i = 0; i < 6; i++) {
+        for (int i = 5; i >= 0; i--) {
             System.out.printf("%d ",  board[i]);
         }
 

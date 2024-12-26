@@ -74,6 +74,27 @@ public class Mancala {
      * @return altered board after move was performed
      */
     public int[] makeMove(int index){
+        final int start = index + 1;
+        final int beads = board[index];
+        board[index] = 0;
+        final int mancala = 13;
+        int end = 0;
+        for (int i = start; i < start+beads; i++) {
+            // return to begin of the array if the index exceeds the length
+            int j = i;
+            if (i > 13) {
+                j = i % 14;
+            }
+            // drop a bead in the well
+            board[j] += 1;
+            end = j;
+        }
+        if (end == board[mancala]) {
+            // player gets another turn
+            System.out.println("Extra move!");
+        }
+
+
         play_score = board[13];
         return board;
     }

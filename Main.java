@@ -18,9 +18,12 @@ public class Main {
                         System.out.println("Not a valid move please try again.");
                     }
                 } while (!game.isValid(move));
-
-                game.makeMove(move);
-                game.AIMove();
+            
+                // make player move and adjust for player board being second half of array
+                game.makeMove(move + 6);
+                
+                // AI move loop
+                
             } while (!game.checkWin());
         }
     }

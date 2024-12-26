@@ -22,11 +22,11 @@ public class Mancala {
      */
     public boolean isValid(int index){
         index += 6;
-        return !((index < 7 || index > 12)) || (board[index] == 0);
+        return !((index < 7 || index > 12) || (board[index] == 0));
     }
 
     public boolean AIValid(int index){
-        return !((index < 1 || index > 6)) || (board[index] == 0);
+        return !((index < 1 || index > 6) || (board[index] == 0));
     }
 
     /**
@@ -48,5 +48,13 @@ public class Mancala {
 
     public boolean checkWin(){
         return false;
+    }
+
+    public int[] getBoard() {
+        return board;
+    }
+
+    public void setBoard(int[] board) {
+        this.board = board;
     }
 }

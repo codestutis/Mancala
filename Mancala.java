@@ -1,3 +1,4 @@
+
 public class Mancala {
     //margerie taylor simpson
     // first half is computers side second half is players side
@@ -16,6 +17,7 @@ public class Mancala {
      * prints board with correct formatting
      */
     public void printBoard(){
+        clearTerminal();
 
         System.out.println();
 
@@ -47,7 +49,8 @@ public class Mancala {
     }
 
     public void clearTerminal(){
-        
+      
+    
     }
 
     /**

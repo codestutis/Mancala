@@ -125,10 +125,7 @@ public class Mancala {
                 second = false;
             }
         }
-        if (first || second) {
-            return true;
-        }
-        return false;
+        return first || second;
     }
 
     public int[] getBoard() {

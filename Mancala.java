@@ -107,9 +107,23 @@ public class Mancala {
         comp_score = board[6];
         return 0;
     }
-
+    
+    /**
+     * 
+     * @return boolean, false if no one has won, true if someone won.
+     */
     public boolean checkWin(){
-        return false;
+        for (int i = 0; i < 6; i++) {
+            if (board[i] != 0) {
+                return false;
+            }
+        }
+        for (int i = 7; i < 13; i++) {
+            if (board[i] != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public int[] getBoard() {

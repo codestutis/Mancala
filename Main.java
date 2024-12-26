@@ -7,7 +7,7 @@ public class Main {
         // get move from user
         try (Scanner input = new Scanner(System.in)) {
             // main game loop
-            do { 
+            do {
                 game.printBoard();
                 // usr input loop
                 do {
@@ -25,6 +25,8 @@ public class Main {
                 // AI move loop
                 
             } while (!game.checkWin());
+
+            System.out.println("Game over!");
         }
     }
 }

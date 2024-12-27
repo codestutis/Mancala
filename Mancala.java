@@ -5,14 +5,14 @@ public class Mancala {
     private int[] board;
     private int comp_score;
     private int play_score;
-    private int move;
+    private int num_move;
     
 
     public Mancala(){
         board = new int[]{4,4,4,4,4,4,0,4,4,4,4,4,4,0};
         comp_score = board[6];
         play_score = board[13];
-        move = 1;
+        num_move = 1;
     }
 
     /**
@@ -134,6 +134,6 @@ public class Mancala {
      * @return boolean. True if its the players move, false if its the computers move.
      */
     public boolean whosMove() {
-        return (move % 2) == 1;
+        return (num_move % 2) == 1;
     }
 }

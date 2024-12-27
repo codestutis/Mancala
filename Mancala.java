@@ -5,12 +5,14 @@ public class Mancala {
     private int[] board;
     private int comp_score;
     private int play_score;
+    private int move;
     
 
     public Mancala(){
         board = new int[]{4,4,4,4,4,4,0,4,4,4,4,4,4,0};
         comp_score = board[6];
         play_score = board[13];
+        move = 1;
     }
 
     /**
@@ -89,11 +91,10 @@ public class Mancala {
             board[j] += 1;
             end = j;
         }
-        if (end == board[mancala]) {
+        if (end == mancala) {
             // player gets another turn
             System.out.println("Extra move!");
         }
-
 
         play_score = board[13];
         return board;
@@ -128,11 +129,11 @@ public class Mancala {
         return first || second;
     }
 
-    public int[] getBoard() {
-        return board;
-    }
-
-    public void setBoard(int[] board) {
-        this.board = board;
+    /**
+     * 
+     * @return boolean. True if its the players move, false if its the computers move.
+     */
+    public boolean whosMove() {
+        return (move % 2) == 1;
     }
 }

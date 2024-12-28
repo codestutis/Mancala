@@ -81,7 +81,13 @@ public class Mancala {
         final int start = index + 1;
         final int beads = board[index];
         board[index] = 0;
-        final int mancala = 13;
+        final int mancala;
+        if (whosMove()){
+            mancala = 13;
+        }
+        else {
+            mancala = 6;
+        }
         int end = 0;
         for (int i = start; i < start+beads; i++) {
             // return to begin of the array if the index exceeds the length

@@ -69,7 +69,7 @@ public class Mancala {
     }
 
     public boolean AIValid(int index){
-        return !((index < 1 || index > 6) || (board[index] == 0));
+        return !((index < 0 || index > 5) || (board[index] == 0));
     }
 
     /**

@@ -136,4 +136,13 @@ public class Mancala {
     public boolean whosMove() {
         return (num_move % 2) == 1;
     }
+
+    public void setNum_move(int num_move) {
+        this.num_move = num_move;
+    }
+
+    public int getNum_move() {
+        return this.num_move;
+    }
+    
 }

@@ -1,4 +1,6 @@
 
+
+
 public class Mancala {
     //margerie taylor simpson
     // first half is computers side second half is players side
@@ -91,8 +93,10 @@ public class Mancala {
             board[j] += 1;
             end = j;
         }
+        num_move++;
         if (end == mancala) {
             // player gets another turn
+            num_move--;
             System.out.println("Extra move!");
         }
 
@@ -106,7 +110,7 @@ public class Mancala {
      */
     public int AIMove(){
         comp_score = board[6];
-        return 0;
+        return 1;
     }
     
     /**
@@ -144,5 +148,4 @@ public class Mancala {
     public int getNum_move() {
         return this.num_move;
     }
-    
 }

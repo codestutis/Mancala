@@ -90,8 +90,9 @@ public class Mancala {
         }
         int end = 0;
         for (int i = start; i < start+beads; i++) {
-            // return to begin of the array if the index exceeds the length
+            // use j so editing it will still run the desired amount of times
             int j = i;
+            // return to begin of the array if the index exceeds the length
             if (i > 13) {
                 j = i % 14;
             }

@@ -1,4 +1,6 @@
 
+
+
 public class Mancala {
     //margerie taylor simpson
     // first half is computers side second half is players side
@@ -67,7 +69,7 @@ public class Mancala {
     }
 
     public boolean AIValid(int index){
-        return !((index < 1 || index > 6) || (board[index] == 0));
+        return !((index < 0 || index > 5) || (board[index] == 0));
     }
 
     /**
@@ -79,11 +81,18 @@ public class Mancala {
         final int start = index + 1;
         final int beads = board[index];
         board[index] = 0;
-        final int mancala = 13;
+        final int mancala;
+        if (whosMove()){
+            mancala = 13;
+        }
+        else {
+            mancala = 6;
+        }
         int end = 0;
         for (int i = start; i < start+beads; i++) {
-            // return to begin of the array if the index exceeds the length
+            // use j so editing it will still run the desired amount of times
             int j = i;
+            // return to begin of the array if the index exceeds the length
             if (i > 13) {
                 j = i % 14;
             }
@@ -96,8 +105,12 @@ public class Mancala {
             board[6-(end-6)]=0;
         }
 
+
+        num_move++;
+
         if (end == mancala) {
             // player gets another turn
+            num_move--;
             System.out.println("Extra move!");
         }
 
@@ -111,7 +124,7 @@ public class Mancala {
      */
     public int AIMove(){
         comp_score = board[6];
-        return 0;
+        return 1;
     }
     
     /**
@@ -149,5 +162,4 @@ public class Mancala {
     public int getNum_move() {
         return this.num_move;
     }
-    
 }

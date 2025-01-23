@@ -1,4 +1,4 @@
-package com.codestutis.mancala;
+package com.codestutis;
 
 import java.util.Scanner;
 

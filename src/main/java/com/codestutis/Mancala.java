@@ -1,4 +1,4 @@
-package com.codestutis.mancala;
+package com.codestutis;
 
 public class Mancala {
     //margerie taylor simpson

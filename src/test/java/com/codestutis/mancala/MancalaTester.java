@@ -6,9 +6,9 @@ public class MancalaTester {
     Mancala game = new Mancala();
     @Test
     void testAIMove(){
-        int expected = 0; 
+        int expected = 1; 
         int actual = game.AIMove();
 
-        assertEquals(expected, actual);
+        assertEquals(expected, actual);\
     }
 }

@@ -10,8 +10,8 @@ public class Mancala {
     private int num_move;
     
 
-    public Mancala(){
-        board = new byte[]{4,4,4,4,4,4,0,4,4,4,4,4,9,0};
+    public Mancala(byte[] board){
+        this.board = board;
         comp_score = board[6];
         play_score = board[13];
         num_move = 1;

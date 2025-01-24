@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        Mancala game = new Mancala();
+        byte[] board = new byte[]{4,4,4,4,4,4,0,4,4,4,4,4,4,0};
+        Mancala game = new Mancala(board);
         int move;
         // get move from user
         try (Scanner input = new Scanner(System.in)) {

@@ -2,7 +2,6 @@ package com.codestutis;
 
 public class Mancala {
     //margerie taylor simpson
-    // first half is computers side second half is players side
     @SuppressWarnings("FieldMayBeFinal")
     private byte[] board;
     private int comp_score;
@@ -15,6 +14,14 @@ public class Mancala {
         comp_score = board[6];
         play_score = board[13];
         num_move = 1;
+    }
+
+    public int get_num_move() {
+        return num_move;
+    }
+
+    public byte[] getBoard() {
+        return board;
     }
 
     /**
@@ -93,6 +100,7 @@ public class Mancala {
         }
         int end = 0;
         int stop = start+beads;
+        // place beads one at a time
         for (int i = start; i < stop; i++) {
             // use j so editing it will still run the desired amount of times
             int j = i;
@@ -160,6 +168,7 @@ public class Mancala {
      * @return boolean. True if its the players move, false if its the computers move.
      */
     public boolean whosMove() {
+        // players moves are odd
         return (num_move % 2) == 1;
     }
 

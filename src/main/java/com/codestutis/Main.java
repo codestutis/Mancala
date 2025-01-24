@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
+        // first half is computers side second half is players side
         byte[] board = new byte[]{4,4,4,4,4,4,0,4,4,4,4,4,4,0};
         Mancala game = new Mancala(board);
         int move;
@@ -26,7 +27,13 @@ public class Main {
                     game.makeMove(move + 6);
                 }
                 else {
-                    game.makeMove(game.AIMove());
+                    //computer move
+
+                    // get move from user for testing purposes
+                    // temporary
+                    System.out.println("Enter Computer move: ");
+                    int comp_move = input.nextInt();
+                    game.makeMove(comp_move - 1);
                 }
                 // AI move loop
                 

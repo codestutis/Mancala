@@ -4,20 +4,24 @@ public class Mancala {
     //margerie taylor simpson
     @SuppressWarnings("FieldMayBeFinal")
     private byte[] board;
-    private int comp_score;
-    private int play_score;
-    private int num_move;
+    private int compScore;
+    private int playScore;
+    private int numMove;
     
 
     public Mancala(byte[] board){
         this.board = board;
-        comp_score = board[6];
-        play_score = board[13];
-        num_move = 1;
+        compScore = board[6];
+        playScore = board[13];
+        numMove = 1;
     }
 
-    public int get_num_move() {
-        return num_move;
+    public int getNumMove() {
+        return this.numMove;
+    }
+
+    public void setNumMove(int numMove){
+        this.numMove = numMove;
     }
 
     public byte[] getBoard() {
@@ -41,7 +45,7 @@ public class Mancala {
         System.out.println();
 
         System.out.printf("%29s", " ");
-        System.out.printf("%d%13s%d", comp_score, " ", play_score);
+        System.out.printf("%d%13s%d", compScore, " ", playScore);
 
         System.out.println();
 
@@ -54,7 +58,7 @@ public class Mancala {
         System.out.println();
 
         System.out.printf("%13s", " ");
-        System.out.printf("Computer score: %d%12sPlayer score: %d", comp_score, " ", play_score);
+        System.out.printf("Computer score: %d%12sPlayer score: %d", compScore, " ", playScore);
         System.out.println();
         System.out.println();
     }
@@ -123,14 +127,14 @@ public class Mancala {
             board[end] = 0;
         }
 
-        num_move++;
+        numMove++;
         // extra move
         if (end == mancala) {
             // player gets another turn
-            num_move--;
+            numMove--;
         }
 
-        play_score = board[13];
+        playScore = board[13];
         return board;
     }
 
@@ -139,7 +143,7 @@ public class Mancala {
      * @return index of computer generated move
      */
     public int AIMove(){
-        comp_score = board[6];
+        compScore = board[6];
         return 0;
     }
     
@@ -169,15 +173,7 @@ public class Mancala {
      */
     public boolean whosMove() {
         // players moves are odd
-        return (num_move % 2) == 1;
-    }
-
-    public void setNum_move(int num_move) {
-        this.num_move = num_move;
-    }
-
-    public int getNum_move() {
-        return this.num_move;
+        return (numMove % 2) == 1;
     }
 
     public void endGame() {
@@ -189,10 +185,10 @@ public class Mancala {
         }
 
         if (start == 0) {
-            comp_score += total;
+            compScore += total;
         }
         else {
-            play_score += total;
+            playScore += total;
         }
     }
 }

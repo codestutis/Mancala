@@ -105,8 +105,8 @@ public class Mancala {
      * @return altered board after move was performed
      */
     public byte[] makeMove(int index){
-        final int start = index + 1;
-        final int beads = board[index];
+        int start = index + 1;
+        int beads = board[index];
         board[index] = 0;
         final int mancala;
         final int skip;
@@ -119,15 +119,13 @@ public class Mancala {
             skip = 13;
         }
         int end = 0;
-        int stop = start+beads;
+        int stop = start + beads;
         // place beads one at a time
         for (int i = start; i < stop; i++) {
             // use j so editing it will still run the desired amount of times
-            int j = i;
             // return to begin of the array if the index exceeds the length
-            if (i > 13) {
-                j = i % 14;
-            }
+            int j = i % 14;
+
             if (j == skip) {
                 stop++;
                 continue;
@@ -137,11 +135,11 @@ public class Mancala {
             end = j;
         }
         // capture
-        if (end >= 7 && end <= 12 && board[end] == 1){
-            board[13] += board[6-(end-6)] + 1;
-            board[6-(end-6)] = 0;
-            board[end] = 0;
-        }
+        // if (end >= 7 && end <= 12 && board[end] == 1){
+        //     board[13] += board[6-(end-6)] + 1;
+        //     board[6-(end-6)] = 0;
+        //     board[end] = 0;
+        // }
 
         numMove++;
         // extra move
@@ -151,6 +149,7 @@ public class Mancala {
         }
 
         playScore = board[13];
+        compScore = board[6];
         return board;
     }
 

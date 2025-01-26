@@ -36,7 +36,7 @@ public class MancalaTest
         byte[] board1 = new byte[]{4,4,4,4,4,4,0,4,4,4,4,4,9,0};
         Mancala game1 = new Mancala(board1);
     
-        game1.makeMove(6);
+        game1.makeMove(12);
     
         assertEquals(0, game1.getCompScore());
     }
@@ -47,9 +47,9 @@ public class MancalaTest
         Mancala game1 = new Mancala(board1);
         game1.setNumMove(2);
     
-        game1.makeMove(6);
+        game1.makeMove(5);
     
-        assertEquals(0, game1.getCompScore());
+        assertEquals(0, game1.getPlayScore());
     }
 
     @Test
@@ -62,6 +62,6 @@ public class MancalaTest
     public void computerPoint(){
         game.setNumMove(2);
         game.makeMove(5);
-        assertEquals(1, game.getPlayScore());
+        assertEquals(1, game.getCompScore());
     }
 }

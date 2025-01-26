@@ -134,12 +134,12 @@ public class Mancala {
             board[j] += 1;
             end = j;
         }
-        // capture
-        // if (end >= 7 && end <= 12 && board[end] == 1){
-        //     board[13] += board[6-(end-6)] + 1;
-        //     board[6-(end-6)] = 0;
-        //     board[end] = 0;
-        // }
+        //capture
+        if (end >= 7 && end <= 12 && board[end] == 1){
+            board[13] += board[6-(end-6)] + 1;
+            board[6-(end-6)] = 0;
+            board[end] = 0;
+        }
 
         numMove++;
         // extra move

@@ -64,4 +64,22 @@ public class MancalaTest
         game.makeMove(5);
         assertEquals(1, game.getCompScore());
     }
+
+    // test for captures on the wrong side
+    @Test
+    public void playerCapture(){
+        byte[] board1 = new byte[]{4,4,4,4,4,4,0,1,0,4,4,4,4,0};
+        Mancala game1 = new Mancala(board1);
+        game1.makeMove(7);
+        assertEquals(5, game1.getPlayScore());
+    }
+
+    @Test
+    public void computerCapture(){
+        byte[] board1 = new byte[]{4,4,4,4,0,1,0,4,4,4,4,4,4,0};
+        Mancala game1 = new Mancala(board1);
+        game1.setNumMove(2);
+        game1.makeMove(1);
+        assertEquals(5, game1.getCompScore());
+    }
 }

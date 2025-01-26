@@ -1,15 +1,18 @@
 package com.codestutis;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MancalaTest 
 {
+    private Mancala game;
 
-    //too many +6's and -1's
-    byte[] board = new byte[]{4,4,4,4,4,4,0,4,4,4,4,4,4,0};
-    Mancala game = new Mancala(board);
-
+    @BeforeEach
+    void setUp() {
+        byte[] board = new byte[]{4,4,4,4,4,4,0,4,4,4,4,4,4,0};
+        game = new Mancala(board);
+    }
     // seperate into test for player and test for computer
     @Test
     void testExtraMove(){
@@ -22,9 +25,43 @@ public class MancalaTest
     
     @Test
     public void testComputerExtraMove(){
-        
+        game.setNumMove(2);
         int move = 2;
         game.makeMove(move);
         assertEquals(2, game.getNumMove(), "still computers move?");
+    }
+
+    @Test
+    public void skipComputerMancala(){
+        byte[] board1 = new byte[]{4,4,4,4,4,4,0,4,4,4,4,4,9,0};
+        Mancala game1 = new Mancala(board1);
+    
+        game1.makeMove(6);
+    
+        assertEquals(0, game1.getCompScore());
+    }
+
+    @Test
+    public void skipPlayerMancala(){
+        byte[] board1 = new byte[]{4,4,4,4,4,9,0,4,4,4,4,4,4,0};
+        Mancala game1 = new Mancala(board1);
+        game1.setNumMove(2);
+    
+        game1.makeMove(6);
+    
+        assertEquals(0, game1.getCompScore());
+    }
+
+    @Test
+    public void playerPoint(){
+        game.makeMove(12);
+        assertEquals(1, game.getPlayScore());
+    }
+
+    @Test
+    public void computerPoint(){
+        game.setNumMove(2);
+        game.makeMove(5);
+        assertEquals(1, game.getPlayScore());
     }
 }

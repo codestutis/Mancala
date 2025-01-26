@@ -16,6 +16,22 @@ public class Mancala {
         numMove = 1;
     }
 
+    public int getCompScore(){
+        return this.compScore;
+    }
+
+    public void setCompScore(int score){
+        this.compScore = score;
+    }
+
+    public int getPlayScore(){
+        return this.playScore;
+    }
+
+    public void setPlayScore(int score){
+        this.playScore = score;
+    }
+
     public int getNumMove() {
         return this.numMove;
     }

@@ -144,7 +144,6 @@ public class Mancala {
         numMove++;
         // extra move
         if (end == mancala) {
-            // player gets another turn
             numMove--;
         }
 

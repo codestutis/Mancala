@@ -74,25 +74,25 @@ public class MancalaTest
         assertEquals(5, game1.getPlayScore(), "capture doesnt work");
         // make sure capture doesnt work on wrong side
         byte[] board2 = new byte[]{0,4,4,4,4,4,0,4,4,4,4,3,4,0};
-        Mancala game2 = new Mancala(board1);
+        Mancala game2 = new Mancala(board2);
         game2.makeMove(11);
-        assertEquals(0, game2.getPlayScore(), "capture works on wrong side, player gets points");
+        assertEquals(1, game2.getPlayScore(), "capture works on wrong side, player gets points");
         assertEquals(0, game2.getCompScore(), "capture works on wrong side, comp gets points");
     }
 
     @Test
     public void computerCapture(){
-        byte[] board1 = new byte[]{4,4,4,4,1,0,0,4,4,4,4,4,4,0};
+        byte[] board1 = new byte[]{1,0,4,4,4,4,0,4,4,4,4,4,4,0};
         Mancala game1 = new Mancala(board1);
         game1.setNumMove(2);
-        game1.makeMove(4);
+        game1.makeMove(1);
         assertEquals(5, game1.getCompScore(), "capture doesnt work ");
         // make sure capture doesnt work on wrong side
-        byte[] board2 = new byte[]{0,4,4,4,4,4,0,4,4,4,4,3,4,0};
-        Mancala game2 = new Mancala(board1);
+        byte[] board2 = new byte[]{4,4,4,4,4,3,0,4,0,4,4,4,4,0};
+        Mancala game2 = new Mancala(board2);
         game2.setNumMove(2);
-        game2.makeMove(4);
+        game2.makeMove(5);
         assertEquals(0, game2.getPlayScore(), "capture works on the wrong side, points go to player");
-        assertEquals(0, game2.getCompScore(), "capture works on the wrong side, points go to comp");
+        assertEquals(1, game2.getCompScore(), "capture works on the wrong side, points go to comp");
     }
 }

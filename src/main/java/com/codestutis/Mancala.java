@@ -110,13 +110,19 @@ public class Mancala {
         board[index] = 0;
         final int mancala;
         final int skip;
+        int first;
+        int last;
         if (whosMove()){
             mancala = 13;
             skip = 6;
+            first = 7;
+            last = 12;
         }
         else {
             mancala = 6;
             skip = 13;
+            first = 0;
+            last = 5;
         }
         int end = 0;
         int stop = start + beads;
@@ -135,10 +141,10 @@ public class Mancala {
             end = j;
         }
         //capture
-        if (end >= 7 && end <= 12 && board[end] == 1){
-            board[13] += board[6-(end-6)] + 1;
-            board[6-(end-6)] = 0;
+        if (end >= first && end <= last && board[end] == 1  && end != mancala && board[(12 - end)] != 0){
             board[end] = 0;
+            board[mancala] += board[12 - end] + 1;
+            board[12 - end] = 0;
         }
 
         numMove++;

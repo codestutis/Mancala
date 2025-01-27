@@ -95,4 +95,20 @@ public class MancalaTest
         assertEquals(0, game2.getPlayScore(), "capture works on the wrong side, points go to player");
         assertEquals(1, game2.getCompScore(), "capture works on the wrong side, points go to comp");
     }
+
+    @Test
+    public void testIsValid(){
+        assertEquals(true, game.isValid(1));
+        assertEquals(true, game.isValid(6));
+        assertEquals(false, game.isValid(8));
+        assertEquals(true, game.isValid(3));
+    }
+
+    @Test
+    public void testAIValid(){
+        assertEquals(true, game.AIValid(0));
+        assertEquals(true, game.AIValid(5));
+        assertEquals(false, game.AIValid(8));
+        assertEquals(true, game.AIValid(3));
+    }
 }

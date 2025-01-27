@@ -31,9 +31,16 @@ public class Main {
 
                     // get move from user for testing purposes
                     // temporary
-                    System.out.println("Enter Computer move: ");
-                    int comp_move = input.nextInt();
-                    game.makeMove(comp_move - 1);
+                    do {
+                        System.out.print("Enter Computer move: ");
+                        move = input.nextInt();
+                        // print message if move is invalid
+                        if (!game.AIValid(move)){
+                            System.out.println("Not a valid move please try again.");
+                        }
+                    } while (!game.AIValid(move - 1));
+                    // make player move and adjust for player board being second half of array
+                    game.makeMove(move - 1);
                 }
                 // AI move loop
                 

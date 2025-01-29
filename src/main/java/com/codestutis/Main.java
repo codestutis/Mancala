@@ -18,7 +18,7 @@ public class Main {
         Mancala game = new Mancala(board);
         int move;
         // get move from user
-        try (Scanner input = new Scanner(System.in)) {
+        try (Scanner INPUT = new Scanner(System.in)) {
             // main game loop
             do {
                 game.printBoard();
@@ -26,7 +26,7 @@ public class Main {
                     // usr input loop
                     do {
                         System.out.print("Enter an integer in the range [1,6]: ");
-                        move = input.nextInt();
+                        move = INPUT.nextInt();
                         // print message if move is invalid
                         if (!game.isValid(move)) {
                             System.out.println("Not a valid move please try again.");
@@ -41,7 +41,7 @@ public class Main {
                     // temporary
                     do {
                         System.out.print("Enter Computer move: ");
-                        move = input.nextInt();
+                        move = INPUT.nextInt();
                         // print message if move is invalid
                         if (!game.isAiValid(move)) {
                             System.out.println("Not a valid move please try again.");

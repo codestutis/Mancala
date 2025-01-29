@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author Kestutis Biskis
+ * @version 1.0.0
+ */
 public class MancalaTest {
     private Mancala game;
 
@@ -12,7 +16,6 @@ public class MancalaTest {
         byte[] board = new byte[]{4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0};
         game = new Mancala(board);
     }
-    // seperate into test for player and test for computer
 
     @Test
     void testExtraMove() {

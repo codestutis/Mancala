@@ -114,4 +114,25 @@ public class MancalaTest {
         assertEquals(false, game.isAiValid(8));
         assertEquals(true, game.isAiValid(3));
     }
+
+    @Test 
+    public void testPlayerEndGame() {
+        byte[] board1 = new byte[]{0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0};
+        Mancala game1 = new Mancala(board1);
+        game1.endGame();
+        game1.printBoard();
+        assertEquals(20, game1.getCompScore());
+        assertEquals(0, game1.getPlayScore());
+
+    }
+
+    @Test 
+    public void testComputerEndGame() {
+        byte[] board1 = new byte[]{0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0};
+        Mancala game1 = new Mancala(board1);
+        game1.endGame();
+        
+        assertEquals(0, game1.getCompScore());
+        assertEquals(24, game1.getPlayScore());
+    }
 }

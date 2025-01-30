@@ -247,17 +247,20 @@ public class Mancala {
      */
 
     public void endGame() {
-        int start = (board[0] == 0) ? 7 : 0;
+        // Add all remaining beads from the computer's side to the computer's Mancala
         int total = 0;
-        for (int i = start; i < start + 6; i++) {
+        for (int i = 0; i < 6; i++) {
             total += board[i];
             board[i] = 0;
         }
+        setCompScore(getCompScore() + total);
 
-        if (start == 0) {
-            compScore += total;
-        } else {
-            playScore += total;
+        // Add all remaining beads from the player's side to the player's Mancala
+        total = 0;
+        for (int i = 7; i < 13; i++) {
+            total += board[i];
+            board[i] = 0;
         }
+        setPlayScore(getPlayScore() + total);
     }
 }

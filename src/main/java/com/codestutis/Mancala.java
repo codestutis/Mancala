@@ -159,17 +159,10 @@ public class Mancala {
         int skip;
         int first;
         int last;
-        if (whosMove()) {
-            mancala = 13;
-            skip = 6;
-            first = 7;
-            last = 12;
-        } else {
-            mancala = 6;
-            skip = 13;
-            first = 0;
-            last = 5;
-        }
+        mancala = whosMove() ? 13 : 6;
+        skip = whosMove() ? 6 : 13;
+        first = whosMove() ? 7 : 0;
+        last = whosMove() ? 12 : 5;
         int end = 0;
         int stop = start + beads;
         // place beads one at a time

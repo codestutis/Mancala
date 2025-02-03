@@ -12,6 +12,7 @@ public class Mancala {
     private int compScore;
     private int playScore;
     private int numMove;
+    private boolean running;
     
 
     /**
@@ -23,6 +24,15 @@ public class Mancala {
         compScore = board[6];
         playScore = board[13];
         numMove = 1;
+        running = true;
+    }
+
+    public boolean getRunning() {
+        return running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
     }
 
     /**
@@ -194,6 +204,11 @@ public class Mancala {
 
         playScore = board[13];
         compScore = board[6];
+
+        if (gameOver()) {
+            endGame();
+        }
+        this.running = false;
         return board;
     }
 

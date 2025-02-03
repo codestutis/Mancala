@@ -19,8 +19,9 @@ public class Main {
         int move;
         // get move from user
         try (Scanner INPUT = new Scanner(System.in)) {
+            boolean running = game.getRunning();
             // main game loop
-            do {
+            while(running) {
                 game.printBoard();
                 if (game.whosMove()) {
                     // usr input loop
@@ -50,10 +51,7 @@ public class Main {
                     // make player move and adjust for player board being second half of array
                     game.makeMove(move - 1);
                 }
-                // AI move loop
-                
-            } while (!game.gameOver());
-            game.endGame();
+            }
             game.printBoard();
             System.out.println("Game over!");
         }

@@ -21,16 +21,15 @@ async function resetGame() {
 function renderBoard(board) {
     const wells = document.querySelectorAll("div[index]");
     wells.forEach(well => {
-        well.innerText = board[well.index];
-    })
-
+        well.innerText = board[well.getAttribute("index")];
+    });
 }
 document.addEventListener('DOMContentLoaded', function() { 
     // Add event listeners to each well
     fetchGameState();
     document.querySelectorAll('.well').forEach(function(well) {
         well.addEventListener('click', function() {
-            makeMove(well.index);
+            makeMove(well.getAttribute("index"));
             fetchGameState();
             console.log(well.getAttribute("index"));
         });

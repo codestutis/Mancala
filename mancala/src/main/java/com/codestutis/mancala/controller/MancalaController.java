@@ -16,7 +16,7 @@ import com.codestutis.mancala.service.MancalaService;
  * this class is the interface between the front end and the back end
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 public class MancalaController {
 
     private final MancalaService mancalaService;

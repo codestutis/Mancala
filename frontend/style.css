@@ -35,6 +35,11 @@ button {
     margin-bottom: 25px;
 }
 
+#reset {
+    padding: auto;
+    margin-top: 15px;
+}
+
 button:hover {
     background-color: var(--button-hover-background-color);
 }

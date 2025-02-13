@@ -1,0 +1,108 @@
+:root {
+    --background-color: #e4e5f1;
+    --text-color: #333;
+    --button-background-color: #4CAF50;
+    --button-hover-background-color: #45a049;
+    --box-shadow: 0 0 20px;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    background-color: var(--button-background-color);
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 25px;
+}
+
+button:hover {
+    background-color: var(--button-hover-background-color);
+}
+
+#board {
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    background-image: url('./images/wood-background.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--box-shadow);
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.well {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 25pt;
+    line-height: 100px;
+    margin: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    color: #121212;
+}
+
+.mancala {
+    border-radius: 50px; /* Adjusted to make it a rounded rectangle */
+    width: 100px;
+    height: 220px; /* Adjusted to be the height of two wells */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    font-size: 25pt;
+    color: #121212;
+}
+
+.spacer {
+    flex-grow: 1;
+    border: solid;
+    border-color: red;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    margin: 10px;
+}
+
+/* Dark mode variables */
+body.dark-mode {
+    --background-color: #232323;
+    --text-color: #f0f0f0;
+    --button-background-color: #555;
+    --button-hover-background-color: #666;
+    --box-shadow: 0 0 20px rgba(0, 0, 1);
+}

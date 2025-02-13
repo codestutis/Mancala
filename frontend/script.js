@@ -1,10 +1,12 @@
 const API_URL = "http://localhost:8080/game";
-const requestOptions = {
-    mode: 'no-cors'
-};
+let first;
+let last;
 async function fetchGameState() {
     const response = await fetch(`${API_URL}/state`);
     const gameState = await response.json();
+    let move = response.currentPlayer % 2 == 1;
+    first = move ? 7 : 0;
+    last = move ? 12 : 5;
     renderBoard(gameState.board);
 }
 
@@ -29,9 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchGameState();
     document.querySelectorAll('.well').forEach(function(well) {
         well.addEventListener('click', function() {
-            makeMove(well.getAttribute("index"));
-            fetchGameState();
-            console.log(well.getAttribute("index"));
+            
+            if (well.innerText != 0 && well.getAttribute("index") >= first && well.getAttribute("index") >= first) {
+                makeMove(well.getAttribute("index"));
+                fetchGameState();
+                console.log("Move accepted");
+            }
         });
     });
 });

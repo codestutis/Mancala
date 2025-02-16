@@ -14,6 +14,15 @@ public class MancalaService {
     }
 
     public GameState makeMove(int pitIndex) {
+        /*
+         * Set variables to be used throughout the function
+         * start is where you will start placing the beads
+         * move return true if its the players move
+         * mancala is the index of the player whos moving mancala
+         * skip is the index of the other mancala
+         * first and last represent first and last index of pits on your side (valid moves)
+         * end is to keep track of where the last bead is dropped
+         */
         int start = pitIndex + 1;
         int beads = gameState.getBoard()[pitIndex];
         gameState.getBoard()[pitIndex] = 0;
@@ -24,10 +33,21 @@ public class MancalaService {
         int first = move ? 7 : 0;
         int last = move ? 12 : 5;
 
+        //TODO put this in its own function, could also be used for capture logic
+        if (move) {
+            if (gameState.getBoard()[pitIndex] != 0 && pitIndex <= first || pitIndex >= last) {
+                return gameState;
+            }
+            else if (gameState.getBoard()[12 - pitIndex] != 0 && pitIndex <= first || pitIndex >= last) {
+                return gameState;
+            }
+        }
+
         //initiate end to keep track of where the last bead goes
         int end = 0;
         int stop = start + beads;
 
+        // drop one bead in each well skipping the opponents mancala
         for (int i = start; i < stop; i++) {
             // use j so editing it will still run the desired amount of times
             // return to begin of the array if the index exceeds the length
@@ -43,12 +63,14 @@ public class MancalaService {
 
         }
         //capture
+        // TODO add option for avalanche mode
         if (end >= first && end <= last && gameState.getBoard()[end] == 1  && end != mancala && gameState.getBoard()[12 - end] != 0) {
             gameState.getBoard()[end] = 0;
             gameState.getBoard()[mancala] += gameState.getBoard()[12 - end] + 1;
             gameState.getBoard()[12 - end] = 0;
         }
 
+        // check for extra move
         if (end != mancala) {
             gameState.setCurrentPlayer(gameState.getCurrentPlayer() + 1);
         }
@@ -94,7 +116,6 @@ public class MancalaService {
         }
         gameState.getBoard()[6] = gameState.getBoard()[6] + total;
     }
-
 
     public void resetGame() {
         gameState = new GameState();

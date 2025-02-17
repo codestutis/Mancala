@@ -14,6 +14,7 @@ public class MancalaService {
     }
 
     public GameState makeMove(int pitIndex) {
+        //TODO make a validate move function for backend validation, capture logic, and minimax.
         /*
          * Set variables to be used throughout the function
          * start is where you will start placing the beads
@@ -32,16 +33,7 @@ public class MancalaService {
         // store where the players first and last well are
         int first = move ? 7 : 0;
         int last = move ? 12 : 5;
-
-        //TODO put this in its own function, could also be used for capture logic
-        if (move) {
-            if (gameState.getBoard()[pitIndex] != 0 && pitIndex <= first || pitIndex >= last) {
-                return gameState;
-            }
-            else if (gameState.getBoard()[12 - pitIndex] != 0 && pitIndex <= first || pitIndex >= last) {
-                return gameState;
-            }
-        }
+    
 
         //initiate end to keep track of where the last bead goes
         int end = 0;

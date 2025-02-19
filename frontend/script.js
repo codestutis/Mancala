@@ -62,9 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function turnGreen(well, move) {
     const index = Number(well.getAttribute('index'));
-
     if (move) {
-        console.log(move);
         if (0 <= index && index <= 5) {
             well.classList.remove('green');
         }
@@ -80,8 +78,6 @@ function turnGreen(well, move) {
             well.classList.add('green');
         }
     }
-
-    console.log(index);
     document.body.classList.toggle('green');
 }
 

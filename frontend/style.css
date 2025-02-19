@@ -4,6 +4,8 @@
     --button-background-color: #4CAF50;
     --button-hover-background-color: #45a049;
     --box-shadow: 0 0 20px;
+    --board-texture:  url('./images/wood-background.jpg');
+    --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -48,7 +50,7 @@ button:hover {
     display: flex;
     align-items: center;
     border-radius: 15px;
-    background-image: url('./images/wood-background.jpg');
+    background-image:var(--board-texture);
     background-size: cover;
     background-position: center;
     box-shadow: var(--box-shadow);
@@ -74,7 +76,7 @@ button:hover {
     font-size: 25pt;
     line-height: 100px;
     margin: 10px;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 20px var(--shadow-color);
     color: #121212;
 }
 
@@ -110,4 +112,9 @@ body.dark-mode {
     --button-background-color: #555;
     --button-hover-background-color: #666;
     --box-shadow: 0 0 20px rgba(0, 0, 1);
+    --board-texture: url(./images/dark-wood.jpg);
+}
+
+.green {
+    --shadow-color: rgba(0, 175, 0, 1);
 }

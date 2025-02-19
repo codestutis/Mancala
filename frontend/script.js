@@ -37,6 +37,7 @@ function renderBoard(board, move) {
     // add board values
     const wells = document.querySelectorAll("div[index]");
     wells.forEach(well => {
+        turnGreen(well, move);
         const index = well.getAttribute("index");
         well.innerText = board[index];
         console.log(`Updated well at index ${index} with value ${board[index]}`);
@@ -46,7 +47,6 @@ function renderBoard(board, move) {
 document.addEventListener('DOMContentLoaded', function() { 
     // Add event listeners to each well
     fetchGameState();
-    turnGreen();
     document.querySelectorAll('.well').forEach(function(well) {
         well.addEventListener('click', function() {
             const index = parseInt(well.getAttribute("index"));
@@ -60,14 +60,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function turnGreen() {
+function turnGreen(well, move) {
+    const index = Number(well.getAttribute('index'));
+
     if (move) {
-        document.body.classList.toggle('green');
+        console.log(move);
+        if (0 <= index && index <= 5) {
+            well.classList.remove('green');
+        }
+        else {
+            well.classList.add('green');
+        }
     }
     else {
-        document.body.classList.toggle('green');
+        if (7 <= index && index <= 12) {
+            well.classList.remove('green');
+        }
+        else {
+            well.classList.add('green');
+        }
     }
 
+    console.log(index);
+    document.body.classList.toggle('green');
 }
 
 function toggleDarkMode() {

@@ -97,7 +97,7 @@ public class MancalaService {
             total += gameState.getBoard()[i];
             gameState.getBoard()[i] = 0;
         }
-        gameState.getBoard()[13] = gameState.getBoard()[13] + total;
+        gameState.getBoard()[6] = gameState.getBoard()[6] + total;
 
 
         // Add all remaining beads from the player's side to the player's Mancala
@@ -106,8 +106,9 @@ public class MancalaService {
             total += gameState.getBoard()[i];
             gameState.getBoard()[i] = 0;
         }
-        gameState.getBoard()[6] = gameState.getBoard()[6] + total;
+        gameState.getBoard()[13] = gameState.getBoard()[13] + total;
     }
+
 
     public void resetGame() {
         gameState = new GameState();

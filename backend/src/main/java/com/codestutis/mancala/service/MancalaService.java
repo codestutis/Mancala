@@ -2,8 +2,13 @@ package com.codestutis.mancala.service;
 
 import org.springframework.stereotype.Service;
 
+import com.codestutis.mancala.ai.MancalaAI;
 import com.codestutis.mancala.model.GameState;
 
+/**
+ * this class is used to create an instance of a game
+ * there will be a GameState object to represent the board
+ */
 @Service
 public class MancalaService {
     // make a gameState object to perform all moves on
@@ -63,6 +68,7 @@ public class MancalaService {
         }
 
         // check for extra move
+        // increment if not
         if (end != mancala) {
             gameState.setCurrentPlayer(gameState.getCurrentPlayer() + 1);
         }
@@ -71,6 +77,9 @@ public class MancalaService {
             endGame();
         }
 
+        if (gameState.getCurrentPlayer() % 2 == 0) {
+
+        }
         //add make move logic
         return gameState;
     }
@@ -112,5 +121,10 @@ public class MancalaService {
 
     public void resetGame() {
         gameState = new GameState();
+    }
+
+    public GameState aiMove() {
+        int move = MancalaAI.getAiMove(gameState);
+        return makeMove(move);
     }
 }
